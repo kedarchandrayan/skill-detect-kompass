@@ -1,1 +1,1 @@
-# skill-detect-kompass
+# Smart Talent Rover APIs

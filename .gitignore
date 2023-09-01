@@ -1,0 +1,32 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Rubymine IDE files
+.idea/*
+
+# Dependency directories
+node_modules/
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+package-lock.json
+
+.nyc_output
+
+/workspace.xml
+
+set_env_vars.sh
+
+.DS_Store
+
+# postgres data
+postgres-data
