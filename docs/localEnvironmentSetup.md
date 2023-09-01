@@ -15,10 +15,23 @@ Next, create a new file named `set_env_vars.sh` in the root directory and paste 
 ```sh
 #!/usr/bin/env bash
 
-# ENVs for local development setup
+export STR_ENVIRONMENT='local'
 
-#Test specific
+# Database details.
+export STR_DB_SUFFIX='local'
+export STR_DB_CONNECTION_POOL_SIZE='10'
+export STR_DB_HOST='postgres'
+export STR_DB_PORT='5432'
+export STR_DB_USER='admin'
+export STR_DB_PASSWORD='rootPassword'
+export STR_DEFAULT_DB=''
 
+# memcached details
+export STR_MEMCACHED_SERVER_ADDRESS="127.0.0.1:11211"
+export STR_CACHE_KEY_PREFIX='local'
+
+# API Base URL
+export STR_API_BASE_URL='localhost:3000'
 ```
 
 ## API Server

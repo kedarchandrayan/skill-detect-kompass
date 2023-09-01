@@ -53,10 +53,6 @@ app.use(function (req, res, next) {
 app.use(function (err, req, res, next) {
   const errorObj = standardResponse.error('i_2', { path: req.path, error: err.toString(), stack: err.stack });
   logger.error('Internal error', errorObj);
-  // Notify error to rollbar
-  errorObj.notify().catch((rollbarErr) => {
-    logger.error('Error in notifying error to rollbar: ', rollbarErr);
-  });
   return errorObj.render(res);
 });
 
