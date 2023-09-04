@@ -19,4 +19,3 @@ You should now have access to the RabbitMQ web console and be able to manage you
 ```shell script
 docker-compose exec api bash
 ```
-
