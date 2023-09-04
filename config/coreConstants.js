@@ -96,6 +96,42 @@ class CoreConstants {
   }
 
   /**
+   * RabbitMQ Host
+   *
+   * @returns {string}
+   */
+  get RABBITMQ_HOST() {
+    return process.env.STR_RABBITMQ_HOST;
+  }
+
+  /**
+   * RabbitMQ Port
+   *
+   * @returns {number}
+   */
+  get RABBITMQ_PORT() {
+    return process.env.STR_RABBITMQ_PORT;
+  }
+
+  /**
+   * RabbitMQ Username
+   *
+   * @returns {string}
+   */
+  get RABBITMQ_USERNAME() {
+    return process.env.STR_RABBITMQ_USERNAME;
+  }
+
+  /**
+   * RabbitMQ Password
+   *
+   * @returns {string}
+   */
+  get RABBITMQ_PASSWORD() {
+    return process.env.STR_RABBITMQ_PASSWORD;
+  }
+
+  /**
    * Base URL of the API for the application.
    *
    * @returns {string}

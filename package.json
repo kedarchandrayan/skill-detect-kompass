@@ -19,6 +19,7 @@
   "dependencies": {
     "@truesparrow/base": "2.0.0",
     "@truesparrow/unicache": "2.0.1",
+    "amqplib": "0.10.3",
     "axios": "1.4.0",
     "bignumber.js": "9.1.1",
     "body-parser": "1.20.2",
