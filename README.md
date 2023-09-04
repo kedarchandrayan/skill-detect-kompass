@@ -9,7 +9,7 @@ These APIs and asynchronous processes serve the web functions of Smart Talent Ro
 
 ## OpenAPI Specifications
 
-For visualizing the [OpenAPI specs](docs/openApiSpecs.json), use this [editor](https://editor-next.swagger.io/).
+For visualizing the [OpenAPI specs](docs/openApiSpecs.yml), use this [editor](https://editor-next.swagger.io/).
 
 ## Connect to local RabbitMQ using web console
 
