@@ -12,6 +12,7 @@ Table missions {
   report_url varchar(255)
   total_experience_details varchar(255)
   min_cgpa smallint
+  skills varchar(1024)
   custom_selection_criteria varchar(1024)
   status mission_status_enum [not null]
   total_count [not null]
@@ -20,22 +21,4 @@ Table missions {
   updated_at int [not null]
 }
 
-Table skills {
-  id bigint [pk, increment]
-  skill varchar(100) [not null]
-  created_at int [not null]
-  updated_at int [not null]
-}
 
-Table mission_skills {
-  id bigint [pk, increment]
-  mission_id bigint [not null, ref: > missions.id ]
-  skill_id bigint [not null, ref: > skills.id]
-  created_at int [not null]
-  updated_at int [not null]
-
-  indexes {
-    (mission_id, skill_id) [unique]
-  }
-
-}
