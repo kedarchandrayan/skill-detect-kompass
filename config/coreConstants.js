@@ -132,6 +132,15 @@ class CoreConstants {
   }
 
   /**
+   * OpenAI key
+   *
+   * @returns {string}
+   */
+  get OPENAI_KEY() {
+    return process.env.STR_OPENAI_KEY;
+  }
+
+  /**
    * Base URL of the API for the application.
    *
    * @returns {string}
