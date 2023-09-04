@@ -1,0 +1,156 @@
+openapi: 3.0.0
+info:
+  title: Smart Talent Rover APIs
+  version: 1.0.0
+paths:
+  /api/missions:
+    get:
+      summary: Get list of missions
+      tags:
+        - Mission CRUD APIs
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: integer
+          required: false
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    properties:
+                      missions:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Mission'
+                      has_next_page:
+                        type: boolean
+                        example: true
+    post:
+      summary: Create a new mission
+      tags:
+        - Mission CRUD APIs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                resume_folder_url:
+                  type: string
+                skills:
+                  type: array
+                  items:
+                    type: string
+                total_experience_details:
+                  type: string
+                min_cgpa:
+                  type: number
+                custom_selection_criteria:
+                  type: string
+      responses:
+        '201':
+          description: Mission created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    properties:
+                      mission:
+                        $ref: '#/components/schemas/Mission'
+  /api/missions/{mission_id}:
+    get:
+      summary: Get a mission by ID
+      tags:
+        - Mission CRUD APIs
+      parameters:
+        - in: path
+          name: mission_id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    properties:
+                      mission:
+                        $ref: '#/components/schemas/Mission'
+components:
+  schemas:
+    Mission:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 123
+        name:
+          type: string
+        resume_folder_url:
+          type: string
+          format: uri  # Specify that it should have a URL format
+          example: https://...
+        report_url:
+          type: string
+          format: uri  # Specify that it should have a URL format
+          example: https://...
+        skills:
+          type: array
+          items:
+            type: string
+            example: Node.js
+        total_experience_details:
+          type: string
+          example: '[{"op": ">=", "val": and 8.5}]'
+        min_cgpa:
+          type: number
+          format: float
+          maximum: 10
+          minimum: 1
+        custom_selection_criteria:
+          type: string
+          example: Candidate should have experience in managing teams in software projects.
+        status:
+          type: string
+          enum: ['CREATED', 'IN_PROGRESS', 'COMPLETED', 'FAILED']
+        total_count:
+          type: integer
+          minimum: 0
+        processed_count:
+          type: integer
+          minimum: 0
+        created_at:
+          type: integer
+          format: int64
+          example: 1688395064
+        updated_at:
+          type: integer
+          format: int64
+          example: 1688395064

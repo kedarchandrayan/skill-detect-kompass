@@ -7,6 +7,10 @@ These APIs and asynchronous processes serve the web functions of Smart Talent Ro
 - You can find the DB schema DBML diagram [here](docs/dbSchema.dbml).
 - To view the schema diagram in a user-friendly graphical format, use the [online editor](https://dbdiagram.io/d).
 
+## OpenAPI Specifications
+
+For visualizing the [OpenAPI specs](docs/openApiSpecs.json), use this [editor](https://editor-next.swagger.io/).
+
 ## Connect to local RabbitMQ using web console
 
 Once the RabbitMQ container is running, you can access the RabbitMQ web console by opening a web browser and navigating to:
