@@ -32,10 +32,20 @@ Mission.init(
       allowNull: true,
       field: 'report_url'
     },
+    totalExperienceDetails: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+      field: 'total_experience_details'
+    },
     minCgpa: {
       type: DataTypes.INTEGER,
       allowNull: true,
       field: 'min_cgpa'
+    },
+    skills: {
+      type: DataTypes.STRING(1024),
+      allowNull: true,
+      field: 'skills'
     },
     totalCount: {
       type: DataTypes.SMALLINT,

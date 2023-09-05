@@ -14,6 +14,7 @@ const createTable =
   '  report_url varchar(255),\n' +
   '  total_experience_details varchar(255),\n' +
   '  min_cgpa smallint,\n' +
+  '  skills varchar(1024),\n' +
   '  total_count smallint NOT NULL,\n' +
   '  processed_count smallint NOT NULL,\n' +
   '  custom_selection_criteria varchar(1024),\n' +

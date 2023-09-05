@@ -6,7 +6,8 @@ const rootPrefix = '..',
   standardResponse = require(rootPrefix + '/lib/standardResponse'),
   databaseConstants = require(rootPrefix + '/lib/globalConstant/database'),
   memcachedProvider = require(rootPrefix + '/lib/providers/memcached'),
-  SequelizeProvider = require(rootPrefix + '/lib/providers/Sequelize');
+  SequelizeProvider = require(rootPrefix + '/lib/providers/Sequelize'),
+  missionRoutes = require(rootPrefix + '/routes/mission/index');
 
 // Heartbeat route
 router.get('/heartbeat', async function (req, res) {
@@ -40,5 +41,8 @@ router.get('/heartbeat', async function (req, res) {
     })
     .render(res);
 });
+
+// All the missions routes are prefixed with /missions
+router.use('/missions', missionRoutes);
 
 module.exports = router;

@@ -7,9 +7,9 @@ const rootPrefix = '../..',
  * Class representing a routes helper base.
  * All the routes helper classes would extend this class.
  *
- * @class RoutesHelperBase
+ * @class RoutesHelper
  */
-class RoutesHelperBase {
+class RoutesHelper {
   /**
    * Constructor
    * @param {object} params
@@ -149,16 +149,15 @@ class RoutesHelperBase {
   /**
    * Render response.
    *
-   * @param {object} result
+   * @param {object} standardResponse
    * @param {object} res
    *
-   * @return {Promise<*>}
-   *
    * @private
+   * @returns {object}
    */
-  _renderResponse(result, res) {
-    throw new Error('Sub-class to implement.');
+  _renderResponse(standardResponse, res) {
+    return standardResponse.render(res);
   }
 }
 
-module.exports = RoutesHelperBase;
+module.exports = RoutesHelper;
