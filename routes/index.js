@@ -7,7 +7,7 @@ const rootPrefix = '..',
   databaseConstants = require(rootPrefix + '/lib/globalConstant/database'),
   memcachedProvider = require(rootPrefix + '/lib/providers/memcached'),
   SequelizeProvider = require(rootPrefix + '/lib/providers/Sequelize'),
-  missionRoutes = require(rootPrefix + '/routes/mission/index');
+  missionRoutes = require(rootPrefix + '/routes/missions/index');
 
 // Heartbeat route
 router.get('/heartbeat', async function (req, res) {

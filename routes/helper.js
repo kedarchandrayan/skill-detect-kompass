@@ -1,4 +1,4 @@
-const rootPrefix = '../..',
+const rootPrefix = '..',
   ApiParamsValidator = require(rootPrefix + '/lib/validators/ApiParams'),
   standardResponse = require(rootPrefix + '/lib/standardResponse'),
   logger = require(rootPrefix + '/lib/customConsoleLogger');
