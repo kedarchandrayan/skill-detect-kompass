@@ -37,11 +37,11 @@ sequenceDiagram
     Splitter ->> Drive: Create Google spreadsheet and populate the mission details
     Drive -->> Splitter: Response
 
-    Splitter ->> DB: Update the mission record with the Google Spreadsheet URL
+    Splitter ->> DB: Update the mission record with the Google Spreadsheet URL and total count
     DB -->> Splitter: Query response
 
-    loop over driveFileIds with fileId as the iteration variable
-        Splitter ->> MessageBroker: Enqueue task to be picked up by Rover, passing fileId and mission ID in params
+    loop over driveFileIds with resumeFileId as the iteration variable
+        Splitter ->> MessageBroker: Enqueue task to be picked up by Rover, passing resumeFileId, mission ID and report spreadsheet ID in params
     end
 
     Splitter -->> MessageBroker: ACK task so that next task can be picked up
