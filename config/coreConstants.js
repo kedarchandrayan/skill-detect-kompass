@@ -1,3 +1,5 @@
+let googleAuthCreds = null;
+
 /**
  * Core constants for the application.
  *
@@ -138,6 +140,22 @@ class CoreConstants {
    */
   get OPENAI_KEY() {
     return process.env.STR_OPENAI_KEY;
+  }
+
+  /**
+   * Google Auth Creds
+   *
+   * @returns {string}
+   * @constructor
+   */
+  get GOOGLE_AUTH_CREDS() {
+    if(googleAuthCreds) {
+      return googleAuthCreds;
+    }
+
+    googleAuthCreds = JSON.parse(unescape(process.env.STR_GOOGLE_AUTH_CREDS));
+
+    return googleAuthCreds;
   }
 
   /**

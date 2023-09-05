@@ -3,7 +3,7 @@ const { Model, DataTypes, Op } = require('sequelize');
 const rootPrefix = '../../..',
   SequelizeProvider = require(rootPrefix + '/lib/providers/Sequelize'),
   databaseConstants = require(rootPrefix + '/lib/globalConstant/database'),
-  MissionModelConstants = require(rootPrefix + '/lib/globalConstant/model/mission'),
+  missionModelConstants = require(rootPrefix + '/lib/globalConstant/model/mission'),
   postgresqlModelHelper = require(rootPrefix + '/app/models/postgresql/helper');
 
 const sequelize = SequelizeProvider.getInstance(databaseConstants.mainDbName);
@@ -56,10 +56,10 @@ Mission.init(
       type: DataTypes.SMALLINT,
       allowNull: false,
       get() {
-        return MissionModelConstants.statuses[this.getDataValue('status')];
+        return missionModelConstants.statuses[this.getDataValue('status')];
       },
       set(value) {
-        this.setDataValue('status', MissionModelConstants.invertedStatuses[value]);
+        this.setDataValue('status', missionModelConstants.invertedStatuses[value]);
       }
     },
     createdAt: {
@@ -84,10 +84,10 @@ Mission.init(
 
 postgresqlModelHelper.addTimestampHooks(Mission);
 
-MissionModelConstants.addHook('beforeFind', 'convertStatus', async (options) => {
+missionModelConstants.addHook('beforeFind', 'convertStatus', async (options) => {
   if (options.where && options.where.status) {
     const statusString = options.where.status;
-    options.where.status = MissionModelConstants.invertedStatuses[statusString];
+    options.where.status = missionModelConstants.invertedStatuses[statusString];
   }
 });
 
