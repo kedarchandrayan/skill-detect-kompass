@@ -1,10 +1,10 @@
-const rootPrefix = '../../../..',
+const rootPrefix = '../../..',
   ServiceBase = require(rootPrefix + '/app/services/Base'),
   standardResponse = require(rootPrefix + '/lib/standardResponse'),
   MissionConstants = require(rootPrefix + '/lib/globalConstant/model/mission'),
   MissionModel = require(rootPrefix + '/app/models/postgresql/Mission'),
   taskQueue = require(rootPrefix + '/lib/messageBroker/taskQueue'),
-  asyncProcessConstants = require(rootrefix + '/lib/globalConstant/asyncProcess');
+  asyncProcessConstants = require(rootPrefix + '/lib/globalConstant/asyncProcess');
 class CreateMission extends ServiceBase {
   constructor(params) {
     super(params);
@@ -12,7 +12,7 @@ class CreateMission extends ServiceBase {
     const oThis = this;
     oThis.name = params.name;
     oThis.resumeFolderUrl = params.resume_folder_url;
-    oThis.skills = params.skills || null;
+    oThis.skills = params.skills || [];
     oThis.totalExperienceDetails = params.total_experience_details || null;
     oThis.minCgpa = params.min_cgpa || null;
     oThis.customSelectionCriteria = params.custom_selection_criteria || null;
@@ -83,11 +83,13 @@ class CreateMission extends ServiceBase {
     const params = {
       name: oThis.name,
       resumeFolderUrl: oThis.resumeFolderUrl,
-      status: MissionConstants.createdStatus
+      status: MissionConstants.createdStatus,
+      totalCount: 0,
+      processedCount: 0
     };
 
     if (oThis.skills) {
-      params.skills = oThis.skills;
+      params.skills = oThis.skills.join(',');
     }
 
     if (oThis.minCgpa) {

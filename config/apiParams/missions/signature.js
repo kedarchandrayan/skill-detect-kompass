@@ -3,7 +3,7 @@ const rootPrefix = '../../..',
   apiNameConstants = require(rootPrefix + '/lib/globalConstant/apiName');
 
 const missionConfig = {
-  [apiNameConstants.missionCreate]: {
+  [apiNameConstants.createMissionApi]: {
     mandatory: [
       {
         parameter: 'name',

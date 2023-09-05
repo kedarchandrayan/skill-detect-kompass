@@ -19,7 +19,7 @@ class SingleMissionFormatter {
     const oThis = this;
 
     return standardResponse.success({
-      checklist: SingleMissionFormatter.formatUsing(oThis.mission)
+      mission: SingleMissionFormatter.formatUsing(oThis.mission)
     });
   }
 
@@ -35,7 +35,7 @@ class SingleMissionFormatter {
       name: mission.name,
       resume_folder_url: mission.resumeFolderUrl,
       report_url: mission.reportUrl,
-      skills: mission.skills,
+      skills: mission.skills.split(','),
       total_experience_details: mission.totalExperienceDetails,
       min_cgpa: mission.minCgpa,
       custom_selection_criteria: mission.customSelectionCriteria,

@@ -94,7 +94,7 @@ Mission.init(
 
 postgresqlModelHelper.addTimestampHooks(Mission);
 
-missionModelConstants.addHook('beforeFind', 'convertStatus', async (options) => {
+Mission.addHook('beforeFind', 'convertStatus', async (options) => {
   if (options.where && options.where.status) {
     const statusString = options.where.status;
     options.where.status = missionModelConstants.invertedStatuses[statusString];
