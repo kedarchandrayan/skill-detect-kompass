@@ -2,8 +2,9 @@ const rootPrefix = '../../../..',
   ServiceBase = require(rootPrefix + '/app/services/Base'),
   standardResponse = require(rootPrefix + '/lib/standardResponse'),
   MissionConstants = require(rootPrefix + '/lib/globalConstant/model/mission'),
-  MissionModel = require(rootPrefix + '/app/models/postgresql/Mission');
-
+  MissionModel = require(rootPrefix + '/app/models/postgresql/Mission'),
+  taskQueue = require(rootPrefix + '/lib/messageBroker/taskQueue'),
+  asyncProcessConstants = require(rootrefix + '/lib/globalConstant/asyncProcess');
 class CreateMission extends ServiceBase {
   constructor(params) {
     super(params);
@@ -37,6 +38,8 @@ class CreateMission extends ServiceBase {
     await oThis._createEntryInMissionsTable();
 
     await oThis._fetchMissionDetails();
+
+    await oThis._processResumes();
 
     return oThis._prepareMissionCreateResponse();
   }
@@ -123,6 +126,16 @@ class CreateMission extends ServiceBase {
     const missionRecord = await MissionModel.findByPk(missionId);
 
     oThis.missionDetails = missionRecord ? missionRecord.toJSON() : {};
+  }
+
+  async _processResumes() {
+    const oThis = this;
+
+    const payload = {
+      mission_id: oThis.missionDetails.id
+    };
+
+    await taskQueue.enqueue(asyncProcessConstants.taskSplitterTaskKind, payload);
   }
 
   /**
