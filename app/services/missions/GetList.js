@@ -66,7 +66,7 @@ class GetList extends ServiceBase {
     // Fetch mission records
     const missions = await MissionModel.findAll({
       where: {
-        status: { [Op.ne]: missionConstants.deletedStatus }
+        status: { [Op.ne]: missionConstants.invertedStatuses[missionConstants.failedStatus] }
       },
       order: [['id', 'ASC']],
       limit: oThis.pageSize + 1,
