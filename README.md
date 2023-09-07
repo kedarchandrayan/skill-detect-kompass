@@ -18,7 +18,7 @@ To edit the Architecture diagram, open [`docs/architectureDiagram.xml`](docs/arc
 For visualizing the [OpenAPI specs](docs/openApiSpecs.yml), use this [editor](https://editor-next.swagger.io/).
 
 ## Postman Collection
-To help with API integration, we've shared the [Postman environment](docs/postman/Hackathon Local.postman_environment.json) export and [Postman collection](docs/postman/Mission CRUD APIs.postman_collection.json) files.
+To help with API integration, we've shared the [Postman environment](docs/postman/Hackathon%20Local.postman_environment.json) export and [Postman collection](docs/postman/Mission%20CRUD%20APIs.postman_collection.json) files.
 
 ## Sequence Diagrams
 
@@ -28,7 +28,7 @@ To help with API integration, we've shared the [Postman environment](docs/postma
 Following is a brief description for each sequence diagram:
 - [Create Mission API](docs/sequenceDiagrams/api/createMission.mermaid): Creates a mission and enqueues task for Task Splitter Async Process.
 - [Task Splitter Async Process](docs/sequenceDiagrams/asyncProcess/taskSplitter.mermaid): Splits the task of processing files of a folder in to multiple tasks, one for each file and enqueues task for Rover Async Process.
-- [Rover Async Process](docs/sequenceDiagrams/asyncProcess/rover.mermaid): Reads the content of resume file and using 
+- [Rover Async Process](docs/sequenceDiagrams/asyncProcess/rover.mermaid): Reads the content of resume file and using OpenAI chat completion API extracts matches and personal info from Resume.
 
 ## Code Structure
 
