@@ -1,3 +1,5 @@
+const { Op } = require('sequelize');
+
 const rootPrefix = '../../..',
   ServiceBase = require(rootPrefix + '/app/services/Base'),
   standardResponse = require(rootPrefix + '/lib/standardResponse'),
@@ -61,18 +63,10 @@ class GetList extends ServiceBase {
   async _fetchMissionRecords() {
     const oThis = this;
 
-    const allowedStatuses = [
-      missionConstants.createdStatus,
-      missionConstants.inProgressStatus,
-      missionConstants.completedStatus
-    ];
-
     // Fetch mission records
     const missions = await MissionModel.findAll({
       where: {
-        status: {
-          [Op.in]: allowedStatuses
-        }
+        status: { [Op.ne]: missionConstants.deletedStatus }
       },
       order: [['id', 'ASC']],
       limit: oThis.pageSize + 1,
