@@ -2,6 +2,12 @@
 
 APIs and asynchronous processes to serve the web functions of Smart Talent Rover.
 
+## High-Level Architecture Diagram
+
+![High-Level Architecture Diagram](https://github.com/kedarchandrayan/talent-rover-be/assets/7627517/b1e02bca-a421-4ca2-8abc-dcbfc7beceb6)
+
+To edit the Architecture diagram, open [`docs/architectureDiagram.xml`](docs/architectureDiagram.xml) in [draw.io](https://app.diagrams.net/).
+
 ## DB Schema
 
 - You can find the DB schema DBML diagram [here](docs/dbSchema.dbml).
@@ -21,7 +27,7 @@ Following is a brief description for each sequence diagram:
 - [Task Splitter Async Process](docs/sequenceDiagrams/asyncProcess/taskSplitter.mermaid): Splits the task of processing files of a folder in to multiple tasks, one for each file and enqueues task for Rover Async Process.
 - [Rover Async Process](docs/sequenceDiagrams/asyncProcess/rover.mermaid): Reads the content of resume file and using 
 
-To see a compiled list of sequence diagrams along with brief descriptions, visit this [Confluence page](https://modolabs.jira.com/wiki/spaces/KTRUESPARROW/pages/3266576441/Sequence+Diagrams).
+## Architechture 
 
 ## Local Environment
 
