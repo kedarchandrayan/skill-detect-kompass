@@ -8,13 +8,13 @@ const missionConfig = {
       {
         parameter: 'name',
         validatorConfig: {
-          validateNonEmptyString: standardResponse.errorMessage.invalidNonEmptyString('name')
+          validateNonEmptyString: 'Invalid mission name.'
         }
       },
       {
         parameter: 'resume_folder_url',
         validatorConfig: {
-          isValidURL: 'Invalid resume folder url.'
+          validateURL: 'Invalid resume folder url.'
         }
       }
     ],
@@ -34,18 +34,13 @@ const missionConfig = {
       {
         parameter: 'min_cgpa',
         validatorConfig: {
-          validateNaturalNumber: 
+          validateFloat: 'Invalid min cgpa.'
         }
       },
       {
         parameter: 'custom_selection_criteria',
         validatorConfig: {
-          // validateNonEmptyString: standardResponse.errorMessage.invalidNonEmptyString('custom_selection_criteria')
-          // Todo:: @Shraddha validate selection criteria length
-          // validateChecklistDescriptionLength: standardResponse.errorMessage.tooLongString(
-          //   'description',
-          //   checklistPropertyConstants.maxDescriptionSize
-          // )
+          validateNonEmptyStringArray: 'Skills array is empty.'
         }
       }
     ]
