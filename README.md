@@ -27,7 +27,9 @@ Following is a brief description for each sequence diagram:
 - [Task Splitter Async Process](docs/sequenceDiagrams/asyncProcess/taskSplitter.mermaid): Splits the task of processing files of a folder in to multiple tasks, one for each file and enqueues task for Rover Async Process.
 - [Rover Async Process](docs/sequenceDiagrams/asyncProcess/rover.mermaid): Reads the content of resume file and using 
 
-## Architechture 
+## Code Structure
+
+To know more about the folder structure and important files in the repository, please refer to [`codeStructure.md`](docs/codeStructure.md).
 
 ## Local Environment
 
