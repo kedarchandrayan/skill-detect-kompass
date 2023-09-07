@@ -68,7 +68,7 @@ class GetList extends ServiceBase {
       where: {
         status: { [Op.ne]: missionConstants.invertedStatuses[missionConstants.failedStatus] }
       },
-      order: [['id', 'ASC']],
+      order: [['created_at', 'DESC']],
       limit: oThis.pageSize + 1,
       offset: oThis.offset
     });
