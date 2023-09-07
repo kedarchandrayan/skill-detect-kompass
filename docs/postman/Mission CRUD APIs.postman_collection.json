@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "eff4745e-8cc1-429e-9b18-b224aedb98d8",
+		"name": "Mission CRUD APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24835476",
+		"_collection_link": "https://universal-star-423765.postman.co/workspace/Team-Workspace~a0616a06-6301-410f-822f-b526bd2952e1/collection/24835476-eff4745e-8cc1-429e-9b18-b224aedb98d8?action=share&source=collection_link&creator=24835476"
+	},
+	"item": [
+		{
+			"name": "Create mission",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Backend resumes",
+							"type": "text"
+						},
+						{
+							"key": "resume_folder_url",
+							"value": "https://drive.google.com/drive/u/0/folders/1TpMSNMqfjodQmh6Vkp-Hf9k-rYkDcZU4",
+							"type": "text"
+						},
+						{
+							"key": "skills[]",
+							"value": "Node.js",
+							"type": "text"
+						},
+						{
+							"key": "skills[]",
+							"value": "React",
+							"type": "text"
+						},
+						{
+							"key": "skills[]",
+							"value": "REST",
+							"type": "text"
+						},
+						{
+							"key": "min_cgpa",
+							"value": "8.5",
+							"type": "text"
+						},
+						{
+							"key": "total_experience_details",
+							"value": "[{\"op\": \">=\", \"val\": \"2\"}]",
+							"type": "text"
+						},
+						{
+							"key": "custom_selection_criteria",
+							"value": "Experience in managing tech team",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/missions",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"missions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Mission List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/missions?page=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"missions"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Mission by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/missions/25",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"missions",
+						"25"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -29,9 +29,6 @@ The codebase is organized as follows:
 - `db/`: Includes database migrations and DB seed file.
 
   - `migration/`: Sub-folder with individual database migration files, each representing a specific version of the database schema and includes necessary queries for table and structure creation/modification.
-
-## Test Suite
-- `test/`: Folder includes test cases written using Mocha and related data, scenarios, and fixture files.
   
 ## Miscellaneous
 - `config/`: Contains configuration-related code, including methods to access environment variables and retrieve configuration settings.

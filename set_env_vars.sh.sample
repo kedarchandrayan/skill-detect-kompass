@@ -15,5 +15,17 @@ export STR_DEFAULT_DB=''
 export STR_MEMCACHED_SERVER_ADDRESS="127.0.0.1:11211"
 export STR_CACHE_KEY_PREFIX='local'
 
+# RabbitMQ details
+export STR_RABBITMQ_HOST='rabbitmq'
+export STR_RABBITMQ_PORT=5672
+export STR_RABBITMQ_USERNAME='admin'
+export STR_RABBITMQ_PASSWORD='rootPassword'
+
+# Google Drive
+export STR_GOOGLE_AUTH_CREDS=''
+
+# OpenAI
+export STR_OPENAI_KEY=''
+
 # API Base URL
 export STR_API_BASE_URL='localhost:3000'

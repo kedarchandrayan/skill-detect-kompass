@@ -1,4 +1,4 @@
-const rootPrefix = '../..',
+const rootPrefix = '..',
   ApiParamsValidator = require(rootPrefix + '/lib/validators/ApiParams'),
   standardResponse = require(rootPrefix + '/lib/standardResponse'),
   logger = require(rootPrefix + '/lib/customConsoleLogger');
@@ -7,9 +7,9 @@ const rootPrefix = '../..',
  * Class representing a routes helper base.
  * All the routes helper classes would extend this class.
  *
- * @class RoutesHelperBase
+ * @class RoutesHelper
  */
-class RoutesHelperBase {
+class RoutesHelper {
   /**
    * Constructor
    * @param {object} params
@@ -77,14 +77,12 @@ class RoutesHelperBase {
   async _getErrorCode() {
     const oThis = this;
 
-    const errorCode = oThis.servicePath
+    oThis.errorCode = oThis.servicePath
       .split('/')
       .filter((part) => part.length > 0)
       .map((part) => part.charAt(0))
       .join('_')
       .toLowerCase();
-
-    oThis.errorCode = errorCode;
 
     logger.log('error code:  ', oThis.errorCode);
   }
@@ -149,16 +147,15 @@ class RoutesHelperBase {
   /**
    * Render response.
    *
-   * @param {object} result
+   * @param {object} standardResponse
    * @param {object} res
    *
-   * @return {Promise<*>}
-   *
    * @private
+   * @returns {object}
    */
-  _renderResponse(result, res) {
-    throw new Error('Sub-class to implement.');
+  _renderResponse(standardResponse, res) {
+    return standardResponse.render(res);
   }
 }
 
-module.exports = RoutesHelperBase;
+module.exports = RoutesHelper;

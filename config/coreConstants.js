@@ -1,3 +1,5 @@
+let googleAuthCreds = null;
+
 /**
  * Core constants for the application.
  *
@@ -93,6 +95,67 @@ class CoreConstants {
    */
   get MEMCACHED_SERVER_ADDRESS() {
     return process.env.STR_MEMCACHED_SERVER_ADDRESS;
+  }
+
+  /**
+   * RabbitMQ Host
+   *
+   * @returns {string}
+   */
+  get RABBITMQ_HOST() {
+    return process.env.STR_RABBITMQ_HOST;
+  }
+
+  /**
+   * RabbitMQ Port
+   *
+   * @returns {number}
+   */
+  get RABBITMQ_PORT() {
+    return process.env.STR_RABBITMQ_PORT;
+  }
+
+  /**
+   * RabbitMQ Username
+   *
+   * @returns {string}
+   */
+  get RABBITMQ_USERNAME() {
+    return process.env.STR_RABBITMQ_USERNAME;
+  }
+
+  /**
+   * RabbitMQ Password
+   *
+   * @returns {string}
+   */
+  get RABBITMQ_PASSWORD() {
+    return process.env.STR_RABBITMQ_PASSWORD;
+  }
+
+  /**
+   * OpenAI key
+   *
+   * @returns {string}
+   */
+  get OPENAI_KEY() {
+    return process.env.STR_OPENAI_KEY;
+  }
+
+  /**
+   * Google Auth Creds
+   *
+   * @returns {string}
+   * @constructor
+   */
+  get GOOGLE_AUTH_CREDS() {
+    if(googleAuthCreds) {
+      return googleAuthCreds;
+    }
+
+    googleAuthCreds = JSON.parse(unescape(process.env.STR_GOOGLE_AUTH_CREDS));
+
+    return googleAuthCreds;
   }
 
   /**
