@@ -1,6 +1,6 @@
 # Smart Talent Rover APIs
 
-These APIs and asynchronous processes serve the web functions of Smart Talent Rover.
+APIs and asynchronous processes to serve the web functions of Smart Talent Rover.
 
 ## DB Schema
 
@@ -11,26 +11,23 @@ These APIs and asynchronous processes serve the web functions of Smart Talent Ro
 
 For visualizing the [OpenAPI specs](docs/openApiSpecs.yml), use this [editor](https://editor-next.swagger.io/).
 
-## Run Async Processes
+## Sequence Diagrams
 
-Run following commands:
-```shell script
-docker-compose exec api bash
-source set_env_vars.sh
-node lib/messageBroker/SubscriberFactory.js
-```
+- Sequence diagrams are represented using mermaid files, and they are stored in the `docs/sequenceDiagrams` folder.
+- You can use the [online mermaid editor](https://mermaid.live/) to create and edit sequence diagrams.
 
-## Connect to local RabbitMQ using web console
+Following is a brief description for each sequence diagram:
+- [Create Mission API](docs/sequenceDiagrams/api/createMission.mermaid): Creates a mission and enqueues task for Task Splitter Async Process.
+- [Task Splitter Async Process](docs/sequenceDiagrams/asyncProcess/taskSplitter.mermaid): Splits the task of processing files of a folder in to multiple tasks, one for each file and enqueues task for Rover Async Process.
+- [Rover Async Process](docs/sequenceDiagrams/asyncProcess/rover.mermaid): Reads the content of resume file and using 
 
-Once the RabbitMQ container is running, you can access the RabbitMQ web console by opening a web browser and navigating to:
-```shell script
-http://localhost:15672/
-```
+To see a compiled list of sequence diagrams along with brief descriptions, visit this [Confluence page](https://modolabs.jira.com/wiki/spaces/KTRUESPARROW/pages/3266576441/Sequence+Diagrams).
 
-Use the following credentials to log in:
+## Local Environment
 
-- Username: admin
-- Password: rootPassword
-
-You should now have access to the RabbitMQ web console and be able to manage your RabbitMQ server running inside the Docker container.
+Refer [here](docs/localEnvironmentSetup.md) for:
+- Pre-requisites for local setup
+- Steps for running API server and Async processes
+- Connect to PostgreSQL via pgAdmin
+- Connect to RabbitMQ web console
 
