@@ -34,7 +34,7 @@ const missionConfig = {
       {
         parameter: 'min_cgpa',
         validatorConfig: {
-          validateFloat: 'Invalid min cgpa.'
+          validateFloatValue: 'Invalid min cgpa.'
         }
       },
       {
