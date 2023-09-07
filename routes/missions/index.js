@@ -24,4 +24,8 @@ router.post('/', async function (req, res, next) {
   Promise.resolve(await new RoutesHelper(params).perform());
 });
 
+router.get('/', async function (req, res, next) {
+  return res.json({ success: true });
+});
+
 module.exports = router;
