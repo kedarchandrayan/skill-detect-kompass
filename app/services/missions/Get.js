@@ -1,11 +1,22 @@
 const { Op } = require('sequelize');
 
 const rootPrefix = '../../..',
+  basicHelper = require(rootPrefix + '/lib/basicHelper'),
   ServiceBase = require(rootPrefix + '/app/services/Base'),
   standardResponse = require(rootPrefix + '/lib/standardResponse'),
   MissionModel = require(rootPrefix + '/app/models/postgresql/Mission');
 
+/**
+ * Class to get mission details.
+ *
+ * @class GetMission
+ */
 class GetMission extends ServiceBase {
+  /**
+   * Constructor to get mission details.
+   *
+   * @param {*} params
+   */
   constructor(params) {
     super(params);
 
@@ -47,9 +58,13 @@ class GetMission extends ServiceBase {
     // Fetch mission records
     const mission = await MissionModel.fetchMissionById(oThis.missionId);
 
-    if (!mission) {
-      // Todo:: throw error
-      // Todo:: param validate error at signature
+    if (basicHelper.isEmptyObject(mission)) {
+      return oThis._error(
+        'a_s_m_gm_1',
+        { missionId: oThis.missionId },
+        'Invalid mission id ',
+        standardResponse.errorCode.badRequest
+      );
     }
 
     oThis.mission = mission;

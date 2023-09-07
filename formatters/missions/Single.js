@@ -1,5 +1,6 @@
 const rootPrefix = '../..',
-  standardResponse = require(rootPrefix + '/lib/standardResponse');
+  standardResponse = require(rootPrefix + '/lib/standardResponse'),
+  basicHelper = require(rootPrefix + '/lib/basicHelper');
 
 class SingleMissionFormatter {
   constructor(serviceResponse) {
@@ -30,13 +31,18 @@ class SingleMissionFormatter {
    * @returns
    */
   static formatUsing(mission) {
+    if (!basicHelper.isEmptyObject(mission) && mission.totalExperienceDetails) {
+      mission.totalExperienceDetails = mission.totalExperienceDetails.replaceAll('&gt=;', '>=').replaceAll('&gt;', '>');
+      mission.totalExperienceDetails = JSON.parse(mission.totalExperienceDetails);
+    }
+
     return {
       id: mission.id,
       name: mission.name,
       resume_folder_url: mission.resumeFolderUrl,
       report_url: mission.reportUrl,
-      skills: mission.skills.split(','),
-      total_experience_details: mission.totalExperienceDetails,
+      skills: mission.skills ? mission.skills.split(',') : [],
+      total_experience_details: mission.totalExperienceDetails ? mission.totalExperienceDetails : {},
       min_cgpa: mission.minCgpa,
       custom_selection_criteria: mission.customSelectionCriteria,
       status: mission.status,

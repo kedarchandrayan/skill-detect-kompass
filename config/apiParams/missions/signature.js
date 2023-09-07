@@ -66,10 +66,10 @@ const missionConfig = {
   [apiNameConstants.getMissionApi]: {
     mandatory: [
       {
-        parameter: 'mission_id'
-        // validatorConfig: {
-        //   validateNaturalNumber: standardResponse.errorMessage.invalidPage
-        // }
+        parameter: 'mission_id',
+        validatorConfig: {
+          validateNaturalNumber: 'Invalid mission id'
+        }
       }
     ]
   }

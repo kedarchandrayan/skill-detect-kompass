@@ -42,8 +42,6 @@ class Mission extends Model {
       }
     });
 
-    console.log('missionRecord: ', missionRecord.toJSON());
-
     return missionRecord ? missionRecord.toJSON() : {};
   }
 }
