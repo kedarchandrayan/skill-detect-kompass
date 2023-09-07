@@ -51,6 +51,18 @@ const missionConfig = {
         }
       }
     ]
+  },
+
+  [apiNameConstants.listMissionsApi]: {
+    mandatory: [],
+    optional: [
+      {
+        parameter: 'page'
+        // validatorConfig: {
+        //   validateNaturalNumber: standardResponse.errorMessage.invalidPage
+        // }
+      }
+    ]
   }
 };
 

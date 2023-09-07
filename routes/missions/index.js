@@ -5,6 +5,7 @@ const rootPrefix = '../..',
   apiNameConstants = require(rootPrefix + '/lib/globalConstant/apiName'),
   assignPathParams = require(rootPrefix + '/middlewares/assignPathParams'),
   SingleMissionFormatter = require(rootPrefix + '/formatters/missions/Single'),
+  ListMissionFormatter = require(rootPrefix + '/formatters/missions/List'),
   RoutesHelper = require(rootPrefix + '/routes/helper');
 
 router.post('/', async function (req, res, next) {
@@ -24,8 +25,21 @@ router.post('/', async function (req, res, next) {
   Promise.resolve(await new RoutesHelper(params).perform());
 });
 
-router.get('/', async function (req, res, next) {
-  return res.json({ success: true });
+router.get('/', assignPathParams, async function (req, res, next) {
+  req.internalDecodedParams.api_name = apiNameConstants.listMissionsApi;
+
+  const dataFormatterFunc = async function (serviceResponse) {
+    return new ListMissionFormatter(serviceResponse).format();
+  };
+
+  const params = {
+    req: req,
+    res: res,
+    servicePath: '/app/services/missions/GetList',
+    onServiceSuccess: dataFormatterFunc
+  };
+
+  Promise.resolve(await new RoutesHelper(params).perform());
 });
 
 module.exports = router;
