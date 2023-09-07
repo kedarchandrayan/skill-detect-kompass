@@ -56,10 +56,10 @@ const missionConfig = {
     mandatory: [],
     optional: [
       {
-        parameter: 'page'
-        // validatorConfig: {
-        //   validateNaturalNumber: standardResponse.errorMessage.invalidPage
-        // }
+        parameter: 'page',
+        validatorConfig: {
+          validateNaturalNumber: 'Invalid page number'
+        }
       }
     ]
   },
