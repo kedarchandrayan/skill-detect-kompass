@@ -8,7 +8,30 @@ const rootPrefix = '../../..',
 
 const sequelize = SequelizeProvider.getInstance(databaseConstants.mainDbName);
 
-class Mission extends Model {}
+class Mission extends Model {
+  static async incrementProcessedCount(missionId) {
+    const cThis = this;
+
+    return cThis.update(
+      { processedCount: sequelize.literal(`processed_count + 1`) },
+      { where: { id: missionId } }
+    );
+  }
+
+  static async markComplete(missionId) {
+    const cThis = this;
+
+    return cThis.update(
+      { status: missionModelConstants.completedStatus },
+      {
+        where: {
+          processedCount: sequelize.literal('total_count'),
+          id: missionId
+        }
+      }
+    )
+  }
+}
 
 Mission.init(
   {
