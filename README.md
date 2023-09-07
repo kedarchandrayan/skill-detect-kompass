@@ -11,6 +11,15 @@ These APIs and asynchronous processes serve the web functions of Smart Talent Ro
 
 For visualizing the [OpenAPI specs](docs/openApiSpecs.yml), use this [editor](https://editor-next.swagger.io/).
 
+## Run Async Processes
+
+Run following commands:
+```shell script
+docker-compose exec api bash
+source set_env_vars.sh
+node lib/messageBroker/SubscriberFactory.js
+```
+
 ## Connect to local RabbitMQ using web console
 
 Once the RabbitMQ container is running, you can access the RabbitMQ web console by opening a web browser and navigating to:
@@ -25,14 +34,3 @@ Use the following credentials to log in:
 
 You should now have access to the RabbitMQ web console and be able to manage your RabbitMQ server running inside the Docker container.
 
-## Connect to Node console
-
-```shell script
-docker-compose exec api bash
-```
-
-## Start async process
-
-```shell script
-node lib/messageBroker/SubscriberFactory.js
-```

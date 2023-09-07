@@ -13,7 +13,7 @@ const createTable =
   '  resume_folder_url varchar(100) NOT NULL,\n' +
   '  report_url varchar(255),\n' +
   '  total_experience_details varchar(255),\n' +
-  '  min_cgpa smallint,\n' +
+  '  min_cgpa numeric(3, 2),\n' +
   '  skills varchar(1024),\n' +
   '  total_count smallint NOT NULL,\n' +
   '  processed_count smallint NOT NULL,\n' +
