@@ -25,6 +25,27 @@ class Mission extends Model {
       }
     );
   }
+
+  /**
+   * Fetches mission by id.
+   *
+   * @param {string} missionId
+   *
+   * @returns {object}
+   */
+  static async fetchMissionById(missionId) {
+    const cThis = this;
+
+    const missionRecord = await cThis.findOne({
+      where: {
+        id: missionId
+      }
+    });
+
+    console.log('missionRecord: ', missionRecord.toJSON());
+
+    return missionRecord ? missionRecord.toJSON() : {};
+  }
 }
 
 Mission.init(

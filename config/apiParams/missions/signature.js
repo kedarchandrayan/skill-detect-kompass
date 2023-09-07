@@ -52,12 +52,21 @@ const missionConfig = {
       }
     ]
   },
-
   [apiNameConstants.listMissionsApi]: {
     mandatory: [],
     optional: [
       {
         parameter: 'page'
+        // validatorConfig: {
+        //   validateNaturalNumber: standardResponse.errorMessage.invalidPage
+        // }
+      }
+    ]
+  },
+  [apiNameConstants.getMissionApi]: {
+    mandatory: [
+      {
+        parameter: 'mission_id'
         // validatorConfig: {
         //   validateNaturalNumber: standardResponse.errorMessage.invalidPage
         // }

@@ -42,4 +42,21 @@ router.get('/', assignPathParams, async function (req, res, next) {
   Promise.resolve(await new RoutesHelper(params).perform());
 });
 
+router.get('/:mission_id', assignPathParams, async function (req, res, next) {
+  req.internalDecodedParams.api_name = apiNameConstants.getMissionApi;
+
+  const dataFormatterFunc = async function (serviceResponse) {
+    return new SingleMissionFormatter(serviceResponse).format();
+  };
+
+  const params = {
+    req: req,
+    res: res,
+    servicePath: '/app/services/missions/Get',
+    onServiceSuccess: dataFormatterFunc
+  };
+
+  Promise.resolve(await new RoutesHelper(params).perform());
+});
+
 module.exports = router;
