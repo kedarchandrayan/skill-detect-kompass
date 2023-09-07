@@ -8,14 +8,13 @@ const missionConfig = {
       {
         parameter: 'name',
         validatorConfig: {
-          // validateNonEmptyString: standardResponse.errorMessage.invalidNonEmptyString('name')
+          validateNonEmptyString: standardResponse.errorMessage.invalidNonEmptyString('name')
         }
       },
       {
         parameter: 'resume_folder_url',
         validatorConfig: {
-          // Todo:: validate url later
-          //validateNonEmptyString: standardResponse.errorMessage.invalidNonEmptyString('resume_folder_url')
+          isValidURL: 'Invalid resume folder url.'
         }
       }
     ],
@@ -23,20 +22,19 @@ const missionConfig = {
       {
         parameter: 'skills',
         validatorConfig: {
-          //validateNonEmptyStringArray: standardResponse.errorMessage.invalidNonEmptyStringArray('skills')
+          validateNonEmptyStringArray: 'Skills array is empty.'
         }
       },
       {
         parameter: 'total_experience_details',
         validatorConfig: {
-          // Todo:: Stringified JSON object
-          //validateNonEmptyString: standardResponse.errorMessage.invalidNonEmptyString('total_experience_details')
+          validateNonEmptyString: 'Invalid total experience details.'
         }
       },
       {
         parameter: 'min_cgpa',
         validatorConfig: {
-          //validateNaturalNumber: standardResponse.errorMessage.invalidCGPA
+          validateNaturalNumber: 
         }
       },
       {
