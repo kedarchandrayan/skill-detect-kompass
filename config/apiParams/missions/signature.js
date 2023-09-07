@@ -1,5 +1,4 @@
 const rootPrefix = '../../..',
-  standardResponse = require(rootPrefix + '/lib/standardResponse'),
   apiNameConstants = require(rootPrefix + '/lib/globalConstant/apiName');
 
 const missionConfig = {
@@ -40,7 +39,7 @@ const missionConfig = {
       {
         parameter: 'custom_selection_criteria',
         validatorConfig: {
-          validateNonEmptyStringArray: 'Skills array is empty.'
+          validateNonEmptyString: 'custom_selection_criteria must be non empty string if passed.'
         }
       }
     ]
