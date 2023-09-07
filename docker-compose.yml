@@ -14,14 +14,6 @@ services:
       - './.env.test:/app/.env.test'
     command: bash -c 'sh start_local.sh'
 
-  # Memcached provisioning
-  memcached:
-    image: memcached
-    ports:
-      - '11211:11211'
-    networks:
-      - localdev
-
   postgres:
     image: postgres
     ports:
@@ -33,6 +25,7 @@ services:
       - localdev
     volumes:
       - ./postgres-data:/var/lib/postgresql/data
+
   rabbitmq:
     image: "rabbitmq:3-management"
     container_name: rabbitmq

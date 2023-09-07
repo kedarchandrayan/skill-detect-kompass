@@ -17,6 +17,11 @@ To edit the Architecture diagram, open [`docs/architectureDiagram.xml`](docs/arc
 
 For visualizing the [OpenAPI specs](docs/openApiSpecs.yml), use this [editor](https://editor-next.swagger.io/).
 
+## Postman Collection
+To help with API integration, we've shared the Postman environment exports and collection files.
+
+// TODO Kedar
+
 ## Sequence Diagrams
 
 - Sequence diagrams are represented using mermaid files, and they are stored in the `docs/sequenceDiagrams` folder.
@@ -31,6 +36,14 @@ Following is a brief description for each sequence diagram:
 
 To know more about the folder structure and important files in the repository, please refer to [`codeStructure.md`](docs/codeStructure.md).
 
+## DB Migrations
+
+To read about the migration module, please refer to [DB Migrations](db/help.md).
+
+## Environment Variables
+
+For the list of required environment variables, please refer to the `set_env_vars.sh.sample` file.
+
 ## Local Environment
 
 Refer [here](docs/localEnvironmentSetup.md) for:
@@ -38,4 +51,3 @@ Refer [here](docs/localEnvironmentSetup.md) for:
 - Steps for running API server and Async processes
 - Connect to PostgreSQL via pgAdmin
 - Connect to RabbitMQ web console
-

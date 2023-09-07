@@ -1,5 +1,3 @@
-const { Op } = require('sequelize');
-
 const rootPrefix = '../../..',
   basicHelper = require(rootPrefix + '/lib/basicHelper'),
   ServiceBase = require(rootPrefix + '/app/services/Base'),

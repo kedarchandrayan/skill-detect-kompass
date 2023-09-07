@@ -77,14 +77,12 @@ class RoutesHelper {
   async _getErrorCode() {
     const oThis = this;
 
-    const errorCode = oThis.servicePath
+    oThis.errorCode = oThis.servicePath
       .split('/')
       .filter((part) => part.length > 0)
       .map((part) => part.charAt(0))
       .join('_')
       .toLowerCase();
-
-    oThis.errorCode = errorCode;
 
     logger.log('error code:  ', oThis.errorCode);
   }

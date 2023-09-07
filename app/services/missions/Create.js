@@ -5,6 +5,7 @@ const rootPrefix = '../../..',
   MissionModel = require(rootPrefix + '/app/models/postgresql/Mission'),
   taskQueue = require(rootPrefix + '/lib/messageBroker/taskQueue'),
   asyncProcessConstants = require(rootPrefix + '/lib/globalConstant/asyncProcess');
+
 class CreateMission extends ServiceBase {
   constructor(params) {
     super(params);
@@ -69,7 +70,7 @@ class CreateMission extends ServiceBase {
   }
 
   /**
-   * Create checklist
+   * Create entry in missions table
    *
    * @sets oThis.missionDetails
    *
@@ -130,6 +131,12 @@ class CreateMission extends ServiceBase {
     oThis.missionDetails = missionRecord ? missionRecord.toJSON() : {};
   }
 
+  /**
+   * Process Resumes
+   *
+   * @returns {Promise<void>}
+   * @private
+   */
   async _processResumes() {
     const oThis = this;
 
