@@ -12,10 +12,7 @@ class Mission extends Model {
   static async incrementProcessedCount(missionId) {
     const cThis = this;
 
-    return cThis.update(
-      { processedCount: sequelize.literal(`processed_count + 1`) },
-      { where: { id: missionId } }
-    );
+    return cThis.update({ processedCount: sequelize.literal(`processed_count + 1`) }, { where: { id: missionId } });
   }
 
   static async markComplete(missionId) {
@@ -24,12 +21,9 @@ class Mission extends Model {
     return cThis.update(
       { status: missionModelConstants.completedStatus },
       {
-        where: {
-          processedCount: sequelize.literal('total_count'),
-          id: missionId
-        }
+        where: sequelize.literal('"processed_count" = "total_count" AND "id" = ' + missionId)
       }
-    )
+    );
   }
 }
 
@@ -125,3 +119,7 @@ Mission.addHook('beforeFind', 'convertStatus', async (options) => {
 });
 
 module.exports = Mission;
+
+// usage of markComplete method
+// const MissionModel = require('./app/models/postgresql/Mission');
+// MissionModel.markComplete();
