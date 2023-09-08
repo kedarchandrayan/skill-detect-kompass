@@ -25,8 +25,12 @@ To help with API integration, we've shared the [Postman environment](docs/postma
 - Sequence diagrams are represented using mermaid files, and they are stored in the `docs/sequenceDiagrams` folder.
 - You can use the [online mermaid editor](https://mermaid.live/) to create and edit sequence diagrams.
 
-Following is a brief description for each sequence diagram:
+Following are API sequence diagrams:
 - [Create Mission API](docs/sequenceDiagrams/api/createMission.mermaid): Creates a mission and enqueues task for Task Splitter Async Process.
+- [Fetch Mission API](docs/sequenceDiagrams/api/fetchMission.mermaid): Fetch mission entity
+- [Fetch Mission List API](docs/sequenceDiagrams/api/fetchMissionList.mermaid): Fetch mission list
+
+Following are Async process sequence diagrams:
 - [Task Splitter Async Process](docs/sequenceDiagrams/asyncProcess/taskSplitter.mermaid): Splits the task of processing files of a folder in to multiple tasks, one for each file and enqueues task for Rover Async Process.
 - [Rover Async Process](docs/sequenceDiagrams/asyncProcess/rover.mermaid): Reads the content of resume file and using OpenAI chat completion API extracts matches and personal info from Resume.
 
